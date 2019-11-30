@@ -35,13 +35,14 @@ public class MeetingService {
         return meetingDao.insert(meeting);
     }
 
-    public ViewObject change(int meeting_id, int scale, String theme, String start_time, String end_time) {
+    public ViewObject change(int meeting_id, int scale, String theme, String start_time, String end_time,int room_id) {
         Meeting meeting = new Meeting();
         meeting.setId(meeting_id);
         meeting.setScale(scale);
         meeting.setStart_time(start_time);
         meeting.setEnd_time(end_time);
         meeting.setTheme(theme);
+        meeting.setRoom_id(room_id);
 
         meeting = meetingDao.change(meeting);
         ViewObject vo = new ViewObject();

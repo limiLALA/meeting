@@ -164,7 +164,7 @@ public class MeetingDao {
     public Meeting change(Meeting meeting) {
         Connection con = null;
         PreparedStatement ps = null;
-        String sql = "UPDATE meeting_info set scale=?, theme=?, start_time=?, end_time=? WHERE id=?";
+        String sql = "UPDATE meeting_info set scale=?, theme=?, start_time=?, end_time=?, room_id=? WHERE id=?";
         try {
             con = DBUtils.getConnection();
             ps = con.prepareStatement(sql);
@@ -172,7 +172,9 @@ public class MeetingDao {
             ps.setString(2,meeting.getTheme());
             ps.setString(3,meeting.getStart_time());
             ps.setString(4, meeting.getEnd_time());
-            ps.setInt(5, meeting.getId());
+            ps.setInt(5,meeting.getRoom_id());
+            ps.setInt(6, meeting.getId());
+
             int row_affected = ps.executeUpdate();
             if (row_affected<=0){
                 //fail

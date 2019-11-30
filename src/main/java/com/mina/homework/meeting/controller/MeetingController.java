@@ -69,9 +69,11 @@ public class MeetingController {
 
         Meeting meeting = meetingService.getById(meeting_id);
         User user = userService.getById(meeting.getBooker_id());
+        List<MeetingRoom> listMeetingRoom = meetingRoomService.getAll();
         ViewObject vo = new ViewObject();
         vo.set("meeting", meeting);
         vo.set("user", user);
+        vo.set("listMeetingRoom", listMeetingRoom);
         model.addAttribute("vos", vo);
         return "meetingdetails";
     }
@@ -83,10 +85,12 @@ public class MeetingController {
             @RequestParam("theme") String theme,
             @RequestParam("start_time") String start_time,
             @RequestParam("end_time") String end_time,
+            @RequestParam("room_id") int room_id,
         Model model){
-        ViewObject vo = meetingService.change(meeting_id,scale,theme,start_time,end_time);
+        System.out.println("room_id:"+room_id);
+        ViewObject vo = meetingService.change(meeting_id,scale,theme,start_time,end_time,room_id);
         model.addAttribute("vos",vo);
-        return "meetingdetails";
+        return  "redirect:/meeting/index";
     }
 
     @Autowired

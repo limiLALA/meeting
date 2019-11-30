@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.7.26)
-# Date: 2019-11-30 22:18:46
+# Date: 2019-11-30 22:59:30
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
 /*!40101 SET NAMES utf8 */;
@@ -8,6 +8,7 @@
 # Structure for table "account"
 #
 
+DROP TABLE IF EXISTS `account`;
 CREATE TABLE `account` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `account` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -26,6 +27,7 @@ INSERT INTO `account` VALUES (1,'asd','asd',0),(2,'asd','asd',0),(3,'asd','asd',
 # Structure for table "department"
 #
 
+DROP TABLE IF EXISTS `department`;
 CREATE TABLE `department` (
   `departmentid` int(11) NOT NULL AUTO_INCREMENT,
   `departmentname` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -42,6 +44,7 @@ INSERT INTO `department` VALUES (1,'gh');
 # Structure for table "meeting_info"
 #
 
+DROP TABLE IF EXISTS `meeting_info`;
 CREATE TABLE `meeting_info` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `room_id` int(11) NOT NULL DEFAULT '0',
@@ -59,12 +62,13 @@ CREATE TABLE `meeting_info` (
 # Data for table "meeting_info"
 #
 
-INSERT INTO `meeting_info` VALUES (8,0,0,1,'是的',10,'2019-11-28 20:34:36','2019-11-20 19:59:19','2019-11-15 20:48:30'),(10,0,0,1,'啥是发到',23,'2019-11-29 22:21:01','2019-11-30 20:23:56','2019-11-29 22:20:57'),(11,0,0,1,'卡三大势',23,'2019-11-29 22:34:09','2019-11-13 20:48:27','2019-11-27 20:54:52'),(12,3,0,1,'minabakaba',23,'2019-11-29 22:40:58','2019-11-13 20:48:27','2019-11-27 20:54:52'),(13,4,0,1,'dw',38,'2019-11-30 22:15:03','2019-11-14 20:49:23','2019-11-15 20:49:26');
+INSERT INTO `meeting_info` VALUES (14,3,0,1,'数据库期末考试经验分享会',99,'2019-11-30 22:58:44','2019-11-29 20:20:55','2019-11-29 22:21:09'),(15,3,0,1,'保研考研交流会',66,'2019-11-30 22:58:39','2019-11-30 10:30:09','2019-11-30 12:00:25');
 
 #
 # Structure for table "meeting_room"
 #
 
+DROP TABLE IF EXISTS `meeting_room`;
 CREATE TABLE `meeting_room` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `rno` char(8) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '房间号',
@@ -77,12 +81,13 @@ CREATE TABLE `meeting_room` (
 # Data for table "meeting_room"
 #
 
-INSERT INTO `meeting_room` VALUES (3,'222',100,0),(4,'333',10,2),(8,'666',66,0),(9,'342',15,0);
+INSERT INTO `meeting_room` VALUES (3,'222',100,0),(4,'333',10,2),(8,'666',10,0),(9,'342',50,0);
 
 #
 # Structure for table "user"
 #
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
